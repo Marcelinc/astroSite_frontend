@@ -1,0 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  background-image: url('http://localhost:3000/img/bg_space.png');
+  height: 100vh;
+  width: 100vw;
+  min-width: 300px;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}

@@ -1,0 +1,9 @@
+.form{
+    background-color: antiquewhite;
+    text-align: center;
+    padding: 10px;
+}
+.form-label{
+    display: grid;
+    text-align: center;
+}

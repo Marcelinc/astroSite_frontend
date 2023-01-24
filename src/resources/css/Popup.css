@@ -1,0 +1,27 @@
+.popup {
+    background-color: #40382e96;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+  }
+
+  .popupContent {
+    background-color: antiquewhite;
+    width: 60vw;
+    height: 40vh;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 10px;
+    text-align: center;
+}
+.popupContent input{
+    max-width: 300px;
+}
+
+.popupContent label{
+    justify-content: center;
+}

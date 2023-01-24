@@ -1,0 +1,17 @@
+.nav{
+    background-color: rgba(240, 248, 255, 0.548);
+}
+.links{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+.links a{
+    text-decoration: none;
+    color: #dfff00;
+    font-weight: bold;
+    font-size: 20px;
+}
+.links a:hover{
+    color: #88ff00;
+}

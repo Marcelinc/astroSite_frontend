@@ -57,6 +57,10 @@ const Dashboard = () => {
                   <button className='button' onClick={() => setEditForm(true)}>Edytuj dane</button>
                   <button className='button' onClick={() => setAddForm(true)}>Dodaj produkt</button>
                 </p>
+                <p className='myitems'>
+                  <span>Moje zamówienia</span>
+                  <span>Moje produkty</span>
+                </p>
               </div>
               </div>
             </section>

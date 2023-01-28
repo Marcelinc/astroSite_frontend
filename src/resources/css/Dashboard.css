@@ -23,6 +23,12 @@
     color: #0e0e73;
     font-weight: 600;
 }
+.myitems{
+  margin-top: 10px;
+}
+.myitems span{
+  padding: 5px;
+}
 
 .mainContent{
     max-width: 1000px;

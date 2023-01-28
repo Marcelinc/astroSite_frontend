@@ -8,6 +8,8 @@ const AddItemForm = ({setForm}) => {
     const [name,setName] = useState('')
     const [price,setPrice] = useState(0)
     const [message,setMessage] = useState('')
+    const [typeList,setTypeList] = useState(['Teleskop','Okular','Filtr','Lornetka'])
+    const [type,setType] = useState('')
 
     const save = e => {
         e.preventDefault();
@@ -35,6 +37,12 @@ const AddItemForm = ({setForm}) => {
             <label className='form-label'>
                 Cena
                 <input type='text' className='input' value={price} onChange={e => setPrice(e.target.value)}/>
+            </label>
+            <label className='form-label'>
+                Typ produktu
+                <select className='input'>
+                    {typeList.map(t => <option value={t}>{t}</option>)}
+                </select>
             </label>
             <button className='button' onClick={() => setForm(false)}>Anuluj</button>
             <button className='button' onClick={save}>Dodaj</button>

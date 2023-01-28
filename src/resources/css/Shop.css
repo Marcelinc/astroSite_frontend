@@ -1,0 +1,28 @@
+.itemFilter {
+    width: 100%;
+    background-color: beige;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+  }
+.filter {
+    color: blue;
+  }
+.filter:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+.itemList {
+  background-color: #b5bfbf;
+  min-height: 100px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.listHeader {
+  padding: 15px;
+  border-bottom: 2px #8e320e solid;
+  width: 50%;
+  margin-left: 10px;
+}

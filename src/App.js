@@ -15,7 +15,7 @@ function App() {
 
   const [token,setToken] = useState(localStorage.getItem('userToken'));
   const [userId,setId] = useState('');
-  const [logged,setLogged] = useState(false);
+  const [logged,setLogged] = useState(true);
 
   useEffect(() => {
     if(token)

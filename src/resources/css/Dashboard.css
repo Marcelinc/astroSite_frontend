@@ -40,22 +40,22 @@
 .options {
     padding: 10px;
   }
-#cart {
+.cart {
     margin: 5px 0px 10px 0px;
     font-weight: 650;
     color: aquamarine;
   }
-#cart:hover{
+.cart:hover{
     color: rgb(94, 214, 158);
     cursor: pointer;
 }
 
 
-.orders {
+.orders,.items {
     text-align: center;
     border-top: 2px #246197 solid;
   }
-.orders h2{
+.orders h2,.items h2{
     margin-top: 5px;
     margin-bottom: 15px;
     color: darkblue;

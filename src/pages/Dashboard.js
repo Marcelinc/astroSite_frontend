@@ -4,9 +4,11 @@ import { AuthContext } from '../App'
 import AddItemForm from '../components/forms/AddItemForm'
 import EditUserForm from '../components/forms/EditUserForm'
 import Nav from '../components/Nav'
+import OrdersList from '../components/OrdersList'
 import Popup from '../components/Popup'
 import '../resources/css/Dashboard.css'
 import { img } from '../resources/images/imgList'
+import ItemsList from './ItemsList'
 
 const Dashboard = () => {
 
@@ -17,13 +19,16 @@ const Dashboard = () => {
   const [addItemForm,setAddForm] = useState(false)
   const [editUserForm,setEditForm] = useState(false)
 
+  const [content,setContent] = useState('orders')
+  const [items,setItems] = useState([])
+
 
   useEffect(() => {
     !auth.logged && navigate('/login')
   },[auth])
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_SERVER+`/users/getUser/lama`,{
+    fetch(process.env.REACT_APP_SERVER+`/users/getUser`,{
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + auth.token
@@ -31,7 +36,7 @@ const Dashboard = () => {
     })
     .then(res => res.json())
     .then(res => {
-      console.log(res)
+      console.log('userData:',res)
       if(res.username){
         setUser(res)
         auth.setId(res.id)
@@ -52,51 +57,22 @@ const Dashboard = () => {
                 <p className='userDetail'><span>Username: </span> {user.username}</p>
                 <p className='userDetail'><span>Email: </span> {user.email}</p>
                 <div className='options'>
-                <p id='cart' onClick={() => navigate('/shop/myCart')}>Mój koszyk</p>
+                <p className='cart' onClick={() => navigate('/shop/myCart')}>Mój koszyk</p>
                 <p id='user-buttons'>
                   <button className='button' onClick={() => setEditForm(true)}>Edytuj dane</button>
                   <button className='button' onClick={() => setAddForm(true)}>Dodaj produkt</button>
                 </p>
                 <p className='myitems'>
-                  <span>Moje zamówienia</span>
-                  <span>Moje produkty</span>
+                  <span className='cart' onClick={() => setContent('orders')}>Moje zamówienia</span>
+                  <span className='cart' onClick={() => setContent('items')}>Moje produkty</span>
                 </p>
               </div>
               </div>
             </section>
-            <section className='orders mainContent'>
-              <h2>Moje zamówienia</h2>
-              <div className='orderList'>
-                <div className='order'>
-                  <span>Numer zamówienia: 352356346435</span>
-                  <span>Status: Zrealizowano</span>
-                  <div>
-                    <span>Zakupiono</span>
-                    <div className='orderedItems'>
-                      <p>ID: 12 | Okular 67zł</p>
-                      <p>Item1</p>
-                      <p>Item1</p>
-                    </div>
-                  </div>
-                  <span>Koszt całkowity: 100zł</span>
-                </div>
-                <div className='order'>
-                <span>Numer zamówienia: 352356346435</span>
-                  <span>Status: Zrealizowano</span>
-                  <div>
-                    <span>Zakupiono</span>
-                    <div className='orderedItems'>
-                      <p>ID: 12 | Okular 67zł</p>
-                      <p>Item1</p>
-                      <p>Item1</p>
-                    </div>
-                  </div>
-                  <span>Koszt całkowity: 100zł</span>
-                </div>
-              </div>
-            </section>
-            {editUserForm && <Popup><EditUserForm user={user} setForm={setEditForm}/></Popup>}
-            {addItemForm && <Popup><AddItemForm setForm={setAddForm}/></Popup>}
+            {content === 'orders' ? <OrdersList/> : <ItemsList items={items} setItems={setItems}/>}
+            
+            {editUserForm && <Popup><EditUserForm user={user} setUser={setUser} setForm={setEditForm}/></Popup>}
+            {addItemForm && <Popup><AddItemForm setForm={setAddForm} setItems={setItems} items={items}/></Popup>}
         </main>
     </div>
   )

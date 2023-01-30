@@ -1,0 +1,28 @@
+.cartInfo{
+    background-color: rgb(248, 248, 234);
+    max-width: 1000px;
+}
+.cartTitle{
+    border-bottom: 2px solid saddlebrown;
+    margin:5px
+}
+.cartMessage {
+    text-align: center;
+    margin: 20px;
+    font-weight: 600;
+  }
+.summary {
+    border-top: 2px solid cadetblue;
+    width: 100%;
+    padding: 20px;
+  }
+.cartValue{
+    font-weight: 600;
+}
+.submitOrder {
+    padding: 3px;
+    margin: 10px 0px;
+  }
+.submitOrder:hover{
+    cursor: pointer;
+}

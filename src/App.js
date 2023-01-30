@@ -20,6 +20,8 @@ function App() {
   useEffect(() => {
     if(token)
       setLogged(true)
+    if(!userId)
+      setLogged(false)
     //console.log(logged)
    // console.log(token)
   },[])
@@ -29,8 +31,8 @@ function App() {
     <AuthContext.Provider value={{token,setToken,userId,setId,logged,setLogged}}>
       <Routes>
         <Route path='/dashboard' element={<Dashboard/>}/>
-        <Route path='/' element={<Welcome/>}/>
-        <Route path='/login' element={<Login/>}/>
+        <Route path='/' element={<Shop/>}/>
+        <Route defer path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>  
         <Route path='/shop' element={<Shop/>}/>
         <Route path='/shop/myCart' element={<ShoppingCart/>}/>

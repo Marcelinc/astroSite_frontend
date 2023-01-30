@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
+import BinocularsItems from '../components/BinocularsItems'
+import FilterItems from '../components/FilterItems'
+import LensItems from '../components/LensItems'
 import Nav from '../components/Nav'
+import PopularItems from '../components/PopularItems'
+import TelescopeItems from '../components/TelescopeItems'
 import '../resources/css/Shop.css'
 
 const Shop = () => {
 
-  const [items,setItems] = useState([{id:1,name:"Okular",price:"60"}])
   const [content,setContent] = useState('started')
 
   return (
@@ -26,20 +30,14 @@ const Shop = () => {
             : content === 'filtr' ? <h2 className='listHeader'>Filtry</h2>
             : content === 'lornetka' ? <h2 className='listHeader'>Lornetki</h2> : ''
           }
-          <div className='items'>
-            <p className='item'>
-              <p>Okular</p>
-              <p>Cena</p>
-            </p>
-            <p className='item'>
-              <p>Okular</p>
-              <p>Cena</p>
-            </p>
-            <p className='item'>
-              <p>Okular</p>
-              <p>Cena</p>
-            </p>
-          </div>
+          {
+            content === 'started' ? <PopularItems/>
+            : content === 'teleskop' ? <TelescopeItems/>
+            : content === 'okular' ? <LensItems/>
+            : content === 'filtr' ? <FilterItems/>
+            : content === 'lornetka' ? <BinocularsItems/> : ''
+          }
+          
         </section>
       </main>
     </div>
